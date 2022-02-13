@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Logic/Teleporter/Teleporter.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 50 )
+
+[node name="Area2" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PoolVector2Array( 1.03937, 23.1722, 53.1055, 17.5536, 63.9683, 77.1113, 148.623, 74.8638, 136.262, -15.0346, 185.706, -27.0211, 238.521, -23.6499, 261.745, -22.9007, 304.072, 11.1858, 305.57, 113.82, -49.9031, 111.198, -129.688, 111.198, -131.935, -6.79393, -77.6218, -5.29562, -39.7895, 9.31287 )
+
+[node name="Spawn1" type="Node2D" parent="."]
+position = Vector2( 262.953, -49.0696 )
+
+[node name="Teleporter" parent="." instance=ExtResource( 1 )]
+position = Vector2( 304.531, -29.5916 )
+area_name = "Area1"
+spawn_name = "Spawn2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+shape = SubResource( 1 )
+
+[editable path="Teleporter"]
